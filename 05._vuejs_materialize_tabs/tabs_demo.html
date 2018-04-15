@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tab Components in Vue</title>
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		
+		<script type="text/javascript" src="https://unpkg.com/vue@2.5.9/dist/vue.js"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+			    $('ul.tabs').tabs();
+			  });
+		</script>
+		
+
+	</head>
+
+	<body>
+		<div class="container">
+			
+			<div id="main">
+
+				<tabs>
+
+					<tab name="schedule" v-bind:selected="true">
+						<h5>The content of the schedule tab</h5>
+						<p>I love Vue.js.</p>
+					</tab>
+
+					<tab name="labs">
+						<h5>The content of the labs tab</h5>
+					</tab>
+
+					<tab name="project">
+						<h5>The content of the project tab</h5>
+					</tab>
+
+					<!-- uncomment during demo to see how simple it is to add new tabs
+					<tab name="admin">
+						<h5>The content of the admin tab</h5>
+					</tab>
+					-->
+
+				</tabs>
+
+			</div> <!-- end of div#main -->
+
+			<script type="text/javascript" src="main.js"></script>
+			
+		</div> <!-- end of div.container -->
+	</body>
+	
+</html>
+
+
+<!--<li class="tab col s3"><a href="#test1">Test 1</a></li>-->

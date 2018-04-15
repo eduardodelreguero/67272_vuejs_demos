@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Data Binding in Vue</title>
+		
+		<script type="text/javascript" src="https://unpkg.com/vue@2.5.9/dist/vue.js"></script>
+		<style type="text/css">
+			.red   { color: red;    }
+			.white { color: white;  }
+			.blue  { color: blue;   }
+		</style>
+
+	</head>
+
+	<body>
+		<div id="main">
+			
+			<h4 v-bind:class="className">{{ listTitle }}</h4>
+			<ul>
+				<!-- <li v-for="hero in heroes">{{ hero }}</li> -->
+			
+				<li v-for="hero in heroes" v-text="hero"></li>
+			
+			</ul>
+			
+			<input type="text" id="input" v-model="newHero">
+			
+			<button v-on:click="addHero" v-bind:title="hover">Add Hero</button>
+			<!-- shorthand: can replace v-on: w/ @; replace v-bind w/ just : -->
+			
+		</div>
+
+		
+		<script>
+			
+			var vm = new Vue({
+				
+				el: '#main',  
+				
+				data: {
+					heroes: ['Batman', 'Superman', 'Wonder Woman', 'Aquaman', 'Flash', 'Cyborg'],
+					newHero: '',
+					hover: 'Click to add hero to the JL',
+					className: 'blue'
+				},
+				
+				computed: {
+					listTitle() {
+						if (this.heroes.length == 6) { return 'Original Justice League Members' } 
+						else { return 'Expanded Justice League Members' };
+					}
+				},
+				
+				methods: {
+					addHero() {
+						this.heroes.push(this.newHero);
+						this.newHero = '';
+					}
+				}
+				
+			});
+			
+		</script>
+
+	</body>
+	
+</html>

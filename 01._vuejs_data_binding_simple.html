@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Simple Data Binding in Vue</title>
+		
+		<script type="text/javascript" src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+
+	</head>
+
+	<body>
+		<div id="main">
+			<p>Within main div...</p>
+			<input type="text" id="input" v-model="message">
+			
+			<p>The value of the input is: {{ message }}</p>
+			
+		</div>
+		<hr />
+		<p>Nothing happening outside of main div...</p>
+		<input type="text" v-model="message">
+		
+		<script>
+
+			// Vue approach: start by creating a Vue instance
+			
+			new Vue({
+				
+				// bind it to a surface, in this case the div '#main'
+				el: '#main',  
+				
+				data: {
+					message: 'Hello World!'
+				}
+				
+			})
+			
+		</script>
+
+	</body>
+</html>
